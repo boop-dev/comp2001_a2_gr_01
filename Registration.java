@@ -2,8 +2,8 @@
 /**
  * Write a description of class Enrollment here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Keagan Crane)
+ * @version (16th of February, 2022)
  */
 public class Registration
 {
@@ -21,23 +21,78 @@ public class Registration
                       String student,String professor)
     {
         // initialise instance variables
-        
+        courseNumber = courseNumber;
+        section = section;
+        timeSlot = slot;
+        student = student;
+        professor = professor;
         
     }
     
+    /**
+     * verifyCourseNumber will check the inputted course number to see if it is
+     * one of the accepted course numbers
+     */
     private boolean verifyCourseNumber(String courseNumber)
     {
-        return true;
+        if (courseNumber == "COMP 1501") {
+            return true;
+        }
+        else if(courseNumber == "ENGL 2201") {
+            return true;
+        }
+        else if(courseNumber == "CHEM 3060") {
+            return true;
+        }
+        else if(courseNumber == "PHYS 2344") {
+            return true;
+        }
+        else if(courseNumber == "ENGL 2005") {
+            return true;
+        }
+        else if(courseNumber == "COMP 2704") {
+            return true;
+        }
+        else if(courseNumber == "PHYS 2377") {
+            return true;
+        }
+        else if(courseNumber == "CHEM 4927") {
+            return true;
+        }
+        else if(courseNumber == "COMP 3444") {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
+    /**
+     * verifySection will check to see if the inputted section is between 0 and 2
+     */
     private boolean verifySection(int section)
     {
-        return true;
+        if (section >= 0 && section <= 2 ) {
+            return true;
+        }
+        
+        else {
+            return false;
+        }
     }
     
+    /**
+     * verifySlot will check to see if the inputted slot is between 12 and 25
+     */
     private boolean verifySlot (int slot)
     {
-        return true;
+        if (timeSlot >= 12 && timeSlot <= 25) {
+            return true;
+        }
+        
+        else {
+            return false;
+        }
     }
 
    public void printInfo()
