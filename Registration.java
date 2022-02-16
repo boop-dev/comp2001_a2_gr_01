@@ -22,6 +22,7 @@ public class Registration
     {
         // initialise instance variables
         
+        
     }
     
     private boolean verifyCourseNumber(String courseNumber)
@@ -43,6 +44,7 @@ public class Registration
    {
        // print all the information about the enrollment record
        // each field on a new line
+       
    }
     
 }
