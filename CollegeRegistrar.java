@@ -90,4 +90,10 @@ public class CollegeRegistrar
     {
         // drops all classes for student
     }
+    
+    public void populateRegistrations(String courseNumber, int section, int slot,
+    String student,String professor)
+    {
+                          
+    }
 }
