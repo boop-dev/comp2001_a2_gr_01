@@ -99,7 +99,13 @@ public class Registration
    {
        // print all the information about the enrollment record
        // each field on a new line
-       
+       System.out.println("Enrollment Record: ");
+       System.out.println();
+       System.out.println("Course Number: " + courseNumber);
+       System.out.println("Section: " + section);
+       System.out.println("Time Slot: " + timeSlot);
+       System.out.println("Student: " + student);
+       System.out.println("Professor: " + professor);
    }
     
 }
