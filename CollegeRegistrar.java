@@ -143,6 +143,7 @@ public class CollegeRegistrar
         System.out.println("");
         System.out.println("populateRegistrations: Joshua Kattapuram.");
         //you guys can add your stuff here too.
-        
+        System.out.println("");
+        System.out.println("verifyCourseNumber, verifySection, verifySlot, printInfo: Keagan Crane");
     }
 }
