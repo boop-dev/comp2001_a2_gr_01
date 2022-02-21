@@ -95,6 +95,9 @@ public class Registration
         }
     }
     
+    /**
+     * next 5 methods are accessor methods for courseNumber, section, timeSlot, student and professor
+     */
     public String getCourseNumber(){
         return courseNumber;
     }
