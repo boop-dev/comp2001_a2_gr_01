@@ -94,7 +94,27 @@ public class Registration
             return false;
         }
     }
-
+    
+    public String getCourseNumber(){
+        return courseNumber;
+    }
+    
+    public int getSection(){
+        return section;
+    }
+    
+    public int  getTimeSlot(){
+        return timeSlot;
+    }
+    
+    public String getStudent(){
+        return student;
+    }
+    
+    public String getProfessor(){
+        return professor;
+    }
+    
    public void printInfo()
    {
        // print all the information about the enrollment record
