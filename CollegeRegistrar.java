@@ -1,20 +1,22 @@
 import java.util.ArrayList;
+import java.util.*;
 /**
  * Write a description of class CollegeRegistrar here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Chiaha Christopher Izuchukwu)
+ * @version (21st of February 2022)
  */
 public class CollegeRegistrar
 {
     private ArrayList<Registration> courseRegistrations;
-
+    private Registration newRegistration;
     /**
      * Constructor for objects of class CollegeRegistrar
      */
     public CollegeRegistrar()
     {
         // initialise instance variables
+        courseRegistrations = new ArrayList<Registration>();
         
     }
 
@@ -24,29 +26,45 @@ public class CollegeRegistrar
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
+    
+    
     public void addRegistration(Registration newRegistration)
     {
         // put your code here
-        
+        courseRegistrations.add(newRegistration);
     }
+
     
     public void printAllRegistrations()
     {
         // prints for all registrations the corresponding info
         // registration records are separated by an empty line
+            courseRegistrations.forEach((newRegistration) -> {
+                newRegistration.printInfo();
+            }
+        );
+    
     }
+    
     
     public void printClassesForStudent(String student)
     {
         // prints all classes (course number and professor) in which the 
         // student is enrolled
         // one class per line
+        courseRegistrations.stream().filter(s -> student.equals(s.getStudent())).forEach(s ->
+            System.out.println("Course Number: " + s.getCourseNumber() + "Professor: " + s.getProfessor()));
+        
     }
     
     public int getClassCountForStudent(String student)
     {
         // number of classes in which the student is enrolled
-        return 0;
+        long count = courseRegistrations.stream().filter(s -> student.equals(s.getStudent())).count();
+            int integer = Math.toIntExact(count);
+            return integer;
+        
+        
     }
     
     public void printClassesForStudentByProfessor(String student, String professor)
@@ -54,6 +72,10 @@ public class CollegeRegistrar
         // prints all classes (course number and section) 
         // tought by professor and taken by student
         // one class per line
+        courseRegistrations.stream().filter(s ->
+        student.equals(s.getStudent()) && professor.equals(s.getProfessor())).forEach(s ->
+        System.out.println("Course Number: "+s.getCourseNumber()+"\nSection: "+s.getSection())); 
+        
     }
     
     public void printClassesForStudentInSlot(String student, int timeSlot)
@@ -61,40 +83,53 @@ public class CollegeRegistrar
         // prints all classes (course number and section)
         // taken by student in timeSlot
         // one class per line
+        courseRegistrations.stream().filter(s -> student.equals(s.getStudent()) &&
+        timeSlot == s.getTimeSlot()).forEach(s -> System.out.println("Course Number: "+s.getCourseNumber()+"\nSection: "+s.getSection()));
     }
     
     public int getRegistrationsInClass(String classNumber)
     {
         // get the number of students registered in classNumber
-        return 0;
+        long count = courseRegistrations.stream().filter(s -> classNumber.equals(s.getCourseNumber())).count();
+            int i = Math.toIntExact(count);
+            return i;
     }
     
     public int getRegistrationsInClass(String classNumber, int timeSlot)
     {
         // get the number of students enrolled in classNumber and slot
-        return 0;
+         long counts = courseRegistrations.stream().filter(s->classNumber.equals(s.getCourseNumber())&&timeSlot==s.getTimeSlot()).count();
+            int i = Math.toIntExact(counts);
+            return i;
     }
     
     public int studentsTakingClassesInSlot(int timeSlot)
     {
         // get the number of students taking classes in timeSlot
-        return 0;
+        long count = courseRegistrations.stream().filter(s -> timeSlot == s.getTimeSlot()).count();
+            int i = Math.toIntExact(count);
+            return i;
     }
     
     public void dropClassForStudent(String classNumber, String student)
     {
         // drops class classNumber for student
+        courseRegistrations.removeIf(s ->
+        student.equals(s.getStudent()) && classNumber.equals(s.getCourseNumber()));
     }
     
     public void dropAllClassesForStudent(String student)
     {
         // drops all classes for student
+        courseRegistrations.removeIf(s ->
+        student.equals(s.getStudent()));
     }
     
     
-    
+    /**
     @author (Joshua Kattapuram)
     @version (16th of February, 2022)
+    */
     
     public void populateRegistrations(String courseNumber, int section, int slot,
     String student,String professor)
@@ -144,6 +179,10 @@ public class CollegeRegistrar
         System.out.println("populateRegistrations: Joshua Kattapuram.");
         //you guys can add your stuff here too.
         System.out.println("");
-        System.out.println("verifyCourseNumber, verifySection, verifySlot, printInfo, getCourseNumber, getSection, getTimeSlot, getStudent, getProfessor: Keagan Crane");
+        System.out.println("verifyCourseNumber, verifySection, verifySlot, printInfo: Keagan Crane");
+        System.out.println("");
+        System.out.println("All methods in collegeRegistrar except from populateRegistrations: Chiaha Christopher Izuchukwu");
+       
+
     }
 }
